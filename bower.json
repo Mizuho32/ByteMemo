@@ -1,0 +1,33 @@
+{
+  "name": "Memo",
+  "description": "Memo for Byte",
+  "main": "index.js",
+  "authors": [
+    "Mizuho"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gulp"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "knockout": "~3.4.0",
+    "bootstrap": "~3.3.6",
+    "jquery-ui": "~1.11.4"
+  },
+  "dependencies": {
+    "knockout": "~3.4.0",
+    "bootstrap": "~3.3.6"
+  }
+}

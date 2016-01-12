@@ -1,0 +1,25 @@
+{
+  "name": "Memo",
+  "version": "1.0.0",
+  "description": "Memo for Byte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "Mizuho",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^3.0.1",
+    "jquery": "^2.2.0",
+    "jquery-ui": "^1.10.5",
+    "knockout": "^3.4.0",
+    "main-bower-files": "^2.11.1"
+  }
+}

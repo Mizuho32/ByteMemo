@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title></title>	
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+		<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+		<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
+
+		<!-- JQuery and JQuery UI-->
+<!--		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>	-->
+		<script src="js/lib/lib.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+	</head>
+
+<body>
+
+	<template id="parts">
+		<table width='70%'>
+			<thead align="center" class="partsThead">
+				<tr>
+					<th width='30%'>通販番号</th>
+					<th width='30%'>型番</th>
+					<th width='30'>場所</th>
+					<th width='30'>残量</th>
+					<th width='10'></th>
+				</tr>
+			</thead>
+			<tbody data-bind='foreach: lines'>
+				<div id="record">
+				<tr data-bind="event: { mouseover: $parent.onMouseOver }">
+					<td>
+						<input data-bind="value: mo_No, valueUpdate: 'afterkeydown'"/>
+					</td>
+					<td>
+						<input data-bind="value: model_No, valueUpdate: 'afterkeydown'"/>
+					</td>
+					<td>
+						<input data-bind="value: position, valueUpdate: 'afterkeydown'"/>
+					</td>
+					<td>
+						<input data-bind="value: amount, valueUpdate: 'afterkeydown'"/>
+					</td>
+					<td>
+						<!--<a href='#' data-bind='click: $parent.removeLine'>×</a>-->
+						<button data-bind='click: $parent.removeLine' class="btn btn-xs btn-danger">×</button>
+					</td>
+				</tr>
+				</div>
+			</tbody>
+		</table>
+	<button data-bind="click: addLine">Add</button>
+	</template>
+	<button id="add">add2</button>
+
+	<div style="clear:both;" id="partsList">
+		<ul>
+			<li class="tab active"><a href="#pX">+X</a></li>
+			<li ><a href="#nX">-X</a></li>
+			<li ><a href="#pY">+Y</a></li>
+			<li ><a href="#nY">-Y</a></li>
+			<li ><a href="#pZ">+Z</a></li>
+			<li ><a href="#nZ">-Z</a></li>
+		</ul>
+
+		<div id="pX">
+			<parts params='lines: pX' id="pX"></parts>
+		</div>
+		<div id="nX">
+			<parts params='lines: nX' id="nX"></parts>
+		</div>
+
+		<div id="pY">
+			<parts params='lines: pY' id="pY"></parts>
+		</div>
+		<div id="nY">
+			<parts params='lines: nY' id="nY"></parts>
+		</div>
+
+		<div id="pZ">
+			<parts params='lines: pZ' id="pZ"></parts>
+		</div>
+		<div id="nZ">
+			<parts params='lines: nZ' id="nZ"></parts>
+		</div>
+	</div>
+<!--
+				<message-editor params='initialText: "Hello, world!"'></message-editor>
+								<button class="btn btn-sm btn-primary" id="push">PUSH</button>
+				<parts></parts>-->
+	<script>
+(function initUI(){
+	$('#maintab').tabs({
+		active: 1,
+	});
+	$('#partsList').tabs();
+})();
+	</script>
+
+	<script src="https://google.github.io/traceur-compiler/bin/traceur-runtime.js"></script>        
+	<!-- UI -->
+	<!--<script src="src/vendor/bootstrap.min.js"></script>-->
+
+	<!-- Three -->
+	<script src="js/UIinit.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+
+	<!--<script>
+var VM = function(){
+	this.hoge= ko.observable('Hello Knockout.js!!')
+	this.fuga = ko.observable("Fuga");
+	this.piyo = ko.computed(
+			function(){
+			return this.hoge() + this.fuga();
+			}, this);
+
+};
+
+var vm = new VM();
+ko.applyBindings(vm);
+
+document.getElementById('button').onclick = function(){
+	console.log( 'VM msg = ' + vm.hoge() );
+}
+
+	</script>-->
+
+</body>
+</html>
