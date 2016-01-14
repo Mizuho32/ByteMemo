@@ -7,7 +7,7 @@ var traceur = require("gulp-traceur");
 
 
 gulp.task('babel', function(){
-	gulp.src('./es6/*.es6')
+	gulp.src('./es6/*.es6?(.js)')
 		.pipe( babel( {
 			presets: ['es2015']
 		}) )
@@ -27,7 +27,7 @@ gulp.task("bower", function(){
 });
 
 gulp.task("traceur", function(){
-	gulp.src('./es6/*.es6')
+	gulp.src('./es6/*.es6(.js)?')
 		.pipe( traceur() )
 		.pipe( gulp.dest('./js') )
 });

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8">
+		<script src="../Util.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="jq.xdomain.js"></script>
+	</head>
+	<body>
+
+	<script>
+
+		//console.log(Util.getHtml);
+		Util.hello();
+		Util.getHtml('http://akizukidenshi.com/catalog/g/gI-00034',
+			function(t){
+				console.log(t);
+			}
+		);
+		
+	/*
+	var uri = 'http://www.yahoo.co.jp/';
+	$.get(uri, function(d){
+		console.log(d.responseText);
+	});
+	*/
+	</script>
+</html>

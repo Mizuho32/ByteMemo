@@ -28,6 +28,7 @@
 					<th width='30'>場所</th>
 					<th width='30'>残量</th>
 					<th width='10'></th>
+					<th width='10'></th>
 				</tr>
 			</thead>
 			<tbody data-bind='foreach: lines'>
@@ -45,6 +46,8 @@
 					<td>
 						<input data-bind="value: amount, valueUpdate: 'afterkeydown'"/>
 					</td>
+					<td>
+						<button data-bind='click: $parent.reloadLine' class="btn btn-xs btn-danger">R</button>
 					<td>
 						<!--<a href='#' data-bind='click: $parent.removeLine'>×</a>-->
 						<button data-bind='click: $parent.removeLine' class="btn btn-xs btn-danger">×</button>
@@ -104,8 +107,10 @@
 	<script src="https://google.github.io/traceur-compiler/bin/traceur-runtime.js"></script>        
 	<!-- UI -->
 	<!--<script src="src/vendor/bootstrap.min.js"></script>-->
+	<script src="js/lib/jq.xdomain.js"></script>
 
 	<!-- Three -->
+	<script src="js/Util.js" type="text/javascript"></script>
 	<script src="js/UIinit.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 

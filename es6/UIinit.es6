@@ -16,6 +16,22 @@
 			this.lines = params.lines || ko.observableArray([]);
 			this.addLine = ()=>{ this.lines.push(new PartsLine()) };
 			this.removeLine = (line) =>{ this.lines.remove( line ) };
+			this.reloadLine = (line) =>{ 
+
+				var url = "http://akizukidenshi.com/catalog/g/g";
+				var mo_No = Util.moNo(line.mo_No());
+				if(mo_No === null) return;
+
+				console.log( mo_No );
+				Util.getHtml(url + mo_No,
+					(t)=>{
+						var dom = Util.H2JQ(t);
+						var obj =  Util.filter(dom);
+						line.model_No(obj.model_No);
+					}
+				);
+
+			};
 			this.onMouseOver = (record)=>{
 //				console.log(record);
 			};

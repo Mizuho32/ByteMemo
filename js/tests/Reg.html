@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Test</title>
+		<meta charset="utf-8">
+		<script src="../Util.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	</head>
+	<body>
+
+	<script>
+		console.log(	Util.moNo('I-12345') );
+		console.log(	Util.moNo('i12345') );
+		console.log(	Util.moNo('i123') );
+		console.log(	Util.moNo('i-123') );
+		console.log(	Util.moNo('i-120') );
+		console.log(	Util.moNo('i-012') );
+
+		console.log(	Util.moNo('i-012340') );
+		console.log(	Util.moNo('-01234') );
+		console.log(	Util.moNo('01234') );
+		console.log(	Util.moNo('ii-01234') );
+		console.log(	Util.moNo('ii01234') );
+		console.log(	Util.moNo('i012349') );
+	</script>
+</html>
