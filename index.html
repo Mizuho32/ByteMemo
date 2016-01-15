@@ -8,7 +8,7 @@
 		<title></title>	
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-		<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="css/_bundle.min.css">
 		<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css" />
 
 		<!-- JQuery and JQuery UI-->
@@ -20,44 +20,46 @@
 <body>
 
 	<template id="parts">
-		<table width='70%'>
+		<table width='70%' class="table table-bordered table-hover table-condensed table-responsive">
 			<thead align="center" class="partsThead">
-				<tr>
-					<th width='10'>通販番号</th>
-					<th width='5'>残量</th>
-					<th width='70'>型番</th>
-					<th width='15'>場所</th>
-					<th ></th>
-					<th ></th>
+				<tr class="info">
+					<th width='7%' class="text-muted">通販番号</th>
+					<th width='3%' class="text-muted">量</th>
+					<th width='74%' class="text-muted">型番</th>
+					<th width='10%' class="text-muted">場所</th>
+
+					<th width='3%'></th>
+					<th width='3%'></th>
 				</tr>
 			</thead>
 			<tbody data-bind='foreach: lines'>
-				<div id="record">
+				<div id="record" >
 				<tr data-bind="event: { mouseover: $parent.onMouseOver }">
-					<td>
-						<input data-bind="value: mo_No, valueUpdate: 'afterkeydown'"/>
+					<td class="form-group has-success" >
+						<input data-bind="value: mo_No, valueUpdate: 'afterkeydown'" style="width:100%;"/>
+					</td>
+					<td >
+						<input data-bind="value: amount, valueUpdate: 'afterkeydown'" style="width:100%;text-align:right"/>
 					</td>
 					<td>
-						<input data-bind="value: amount, valueUpdate: 'afterkeydown'"/>
+						<input data-bind="value: model_No, valueUpdate: 'afterkeydown'" style="width:100%;"/>
 					</td>
 					<td>
-						<input data-bind="value: model_No, valueUpdate: 'afterkeydown'"/>
+						<input data-bind="value: position, valueUpdate: 'afterkeydown'" style="width:100%;"/>
 					</td>
 					<td>
-						<input data-bind="value: position, valueUpdate: 'afterkeydown'"/>
-					</td>
+						<button data-bind='click: $parent.reloadLine' class="btn btn-sm btn-success" >⟳</button>
 					<td>
-						<button data-bind='click: $parent.reloadLine' class="btn btn-xs btn-danger">R</button>
-					<td>
-						<!--<a href='#' data-bind='click: $parent.removeLine'>×</a>-->
-						<button data-bind='click: $parent.removeLine' class="btn btn-xs btn-danger">×</button>
+						<button data-bind='click: $parent.removeLine' class="btn btn-sm btn-danger" >×</button>
 					</td>
 				</tr>
 				</div>
 			</tbody>
 		</table>
-	<button data-bind="click: addLine">Add</button>
-	<button data-bind="click: all">一括</button>
+	<div id="buttons">
+		<button data-bind="click: addLine" class="btn btn-sm btn-primary">Add</button>
+		<button data-bind="click: all" class="btn btn-sm btn-primary">一括</button>
+	</div>
 	</template>
 	<button id="add">add2</button>
 
