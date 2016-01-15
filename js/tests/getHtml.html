@@ -14,11 +14,28 @@
 
 		//console.log(Util.getHtml);
 		Util.hello();
-		Util.getHtml('http://akizukidenshi.com/catalog/g/gI-00034',
+		var MO = "I-00034";
+		var hei = "";
+		/*
+		Util.getHtml('http://akizukidenshi.com/catalog/g/g' + MO,
 			function(t){
-				console.log(t);
+//				console.log(t);
+				hei = t;
 			}
-		);
+		);*/
+		$.ajax({
+			type: "GET",
+			url: 'http://localhost:5000/tests/dummy/index.html',//'http://akizukidenshi.com/catalog/g/g' + MO,
+			dataType: "html",
+			async: false,
+			success:
+			function(t){
+				hei = t;
+				console.log(hei);
+			}
+		});
+		console.log("HHHHHHHHHHHHHHHHHHHHEEEEEEEEEEEEYYYYYYYYYYYYY");
+		console.log(hei);
 		
 	/*
 	var uri = 'http://www.yahoo.co.jp/';

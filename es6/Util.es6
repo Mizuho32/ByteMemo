@@ -7,9 +7,19 @@ class Util{
 		console.log("Hello");
 	}
 
+	static Failed(t){
+			if (t.search("ご指定の商品は販売終了か、ただ今お取扱いできない商品です") > -1) {
+				console.log("Failed");
+				return true;
+			}else return false;
+	}
 	static getHtml(url, f){
+			console.log(url);
 		$.get(url, (d) => {
-			f(d.responseText);
+			if(Util.Failed(d.responseText || d))
+				f(null);
+			else
+				f(d.responseText || d);
 		});
 	}
 

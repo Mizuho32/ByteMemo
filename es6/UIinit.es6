@@ -16,15 +16,40 @@
 			this.lines = params.lines || ko.observableArray([]);
 			this.addLine = ()=>{ this.lines.push(new PartsLine()) };
 			this.removeLine = (line) =>{ this.lines.remove( line ) };
+			this.all = ()=>{
+				var url = "http://akizukidenshi.com/catalog/g/g";
+//				var url = "http://localhost:8000/js/tests/dummy/";
+
+				for(var line of this.lines()){
+					if(line.mo_No() == null) continue;
+
+					var mo_No = Util.moNo(line.mo_No());
+					line.mo_No(mo_No);
+
+					( ()=>{
+						var _line = line;
+						Util.getHtml(url + mo_No,
+							(t)=>{
+								if(t === null) return;
+								var dom = Util.H2JQ(t);
+								var obj =  Util.filter(dom);
+								_line.model_No(obj.model_No);
+							}
+						);
+					})();
+				}
+			}
 			this.reloadLine = (line) =>{ 
 
 				var url = "http://akizukidenshi.com/catalog/g/g";
-				var mo_No = Util.moNo(line.mo_No());
-				if(mo_No === null) return;
+				if(line.mo_No() == null) return;
 
-				console.log( mo_No );
+				var mo_No = Util.moNo(line.mo_No());
+				line.mo_No(mo_No);
+
 				Util.getHtml(url + mo_No,
 					(t)=>{
+						if(t === null) return;
 						var dom = Util.H2JQ(t);
 						var obj =  Util.filter(dom);
 						line.model_No(obj.model_No);
@@ -70,8 +95,8 @@
 
 function UIinit( ocr, view ){
 	var vm = new VM();
-	vm.pX.push(new PartsLine());
-	vm.pX.push(new PartsLine());
+//	vm.pX.push(new PartsLine());
+//	vm.pX.push(new PartsLine());
 
 	ko.applyBindings(vm);
 

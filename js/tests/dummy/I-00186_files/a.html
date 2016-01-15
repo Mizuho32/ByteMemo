@@ -1,0 +1,14 @@
+var k='jp.co.kotoha.rc.akizukidenshi.history';var h='';var c=document.cookie.split('; ');
+if(!c){;}else{
+	for(var i=0;i<c.length;i++){
+		if(c[i].indexOf(k+'=')===0){h=unescape(c[i].substring(k.length+1));}
+	}
+}
+if(h===''){h='I-00186';}else{
+	var o=h.split(';');var n=new Array();n[0]='I-00186';var i=1;
+	for(var j=0;j<o.length;j++){
+		if('I-00186'!=o[j]){n[i++]=o[j];}
+	}
+	h=n.slice(0,10).join(';');
+}
+document.cookie=k+'='+escape(h)+'; path=/';

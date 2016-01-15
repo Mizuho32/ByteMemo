@@ -23,12 +23,12 @@
 		<table width='70%'>
 			<thead align="center" class="partsThead">
 				<tr>
-					<th width='30%'>通販番号</th>
-					<th width='30%'>型番</th>
-					<th width='30'>場所</th>
-					<th width='30'>残量</th>
-					<th width='10'></th>
-					<th width='10'></th>
+					<th width='10'>通販番号</th>
+					<th width='5'>残量</th>
+					<th width='70'>型番</th>
+					<th width='15'>場所</th>
+					<th ></th>
+					<th ></th>
 				</tr>
 			</thead>
 			<tbody data-bind='foreach: lines'>
@@ -38,13 +38,13 @@
 						<input data-bind="value: mo_No, valueUpdate: 'afterkeydown'"/>
 					</td>
 					<td>
+						<input data-bind="value: amount, valueUpdate: 'afterkeydown'"/>
+					</td>
+					<td>
 						<input data-bind="value: model_No, valueUpdate: 'afterkeydown'"/>
 					</td>
 					<td>
 						<input data-bind="value: position, valueUpdate: 'afterkeydown'"/>
-					</td>
-					<td>
-						<input data-bind="value: amount, valueUpdate: 'afterkeydown'"/>
 					</td>
 					<td>
 						<button data-bind='click: $parent.reloadLine' class="btn btn-xs btn-danger">R</button>
@@ -57,6 +57,7 @@
 			</tbody>
 		</table>
 	<button data-bind="click: addLine">Add</button>
+	<button data-bind="click: all">一括</button>
 	</template>
 	<button id="add">add2</button>
 
