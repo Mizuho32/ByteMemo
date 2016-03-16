@@ -23,20 +23,22 @@
 		<table width='70%' class="table table-bordered table-hover table-condensed table-responsive">
 			<thead align="center" class="partsThead">
 				<tr class="info">
-					<th width='7%' class="text-muted">通販番号</th>
-					<th width='3%' class="text-muted">量</th>
-					<th width='74%' class="text-muted">型番</th>
-					<th width='10%' class="text-muted">場所</th>
-
 					<th width='3%'></th>
+					<th width='7%' class="text-muted">通販番号</th>
+					<th width='3%' class="text-muted">残量</th>
+					<th width='74%' class="text-muted">品名</th>
+					<th width='10%' class="text-muted">場所</th>
 					<th width='3%'></th>
 				</tr>
 			</thead>
 			<tbody data-bind='foreach: lines'>
-				<div id="record" >
+				<div id="record" class="form-group">
 				<tr data-bind="event: { mouseover: $parent.onMouseOver }">
+					<td>
+						<button data-bind='click: $parent.reloadLine' class="btn btn-sm btn-success" >⟳</button>
+					</td>
 					<td class="form-group has-success" >
-						<input data-bind="value: mo_No, valueUpdate: 'afterkeydown'" style="width:100%;"/>
+						<input data-bind="value: mo_No, valueUpdate: 'afterkeydown'" style="width:100%;" class="form-contorl"/>
 					</td>
 					<td >
 						<input data-bind="value: amount, valueUpdate: 'afterkeydown'" style="width:100%;text-align:right"/>
@@ -47,8 +49,6 @@
 					<td>
 						<input data-bind="value: position, valueUpdate: 'afterkeydown'" style="width:100%;"/>
 					</td>
-					<td>
-						<button data-bind='click: $parent.reloadLine' class="btn btn-sm btn-success" >⟳</button>
 					<td>
 						<button data-bind='click: $parent.removeLine' class="btn btn-sm btn-danger" >×</button>
 					</td>
