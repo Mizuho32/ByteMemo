@@ -5,7 +5,7 @@
 - npm
 
 ## Preparation
-`$ npm install`
+`$ npm install`  
 `$ gulp`
 
 ## Run
